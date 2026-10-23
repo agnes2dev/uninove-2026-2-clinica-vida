@@ -267,3 +267,30 @@ legend {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.oculto {
+  display: none;
+}
+
+.aviso {
+  color: #C84B31;
+  font-size: 0.9rem;
+}
+
+.campo-invalido {
+  border-color: #C84B31;
+}
+
+.busca-especialidade {
+  max-width: 360px;
+  margin-bottom: 20px;
+}
+
+#resumo-agendamento {
+  margin-top: 20px;
+  padding: 16px;
+  font-weight: 600;
+  color: var(--vida-primaria);
+  background-color: var(--vida-clara);
+  border-radius: var(--raio);
+}
