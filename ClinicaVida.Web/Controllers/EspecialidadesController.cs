@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using ClinicaVida.Web.Models;
 
 namespace ClinicaVida.Web.Controllers;
 
@@ -6,20 +7,28 @@ public class EspecialidadesController : Controller
 {
     public IActionResult Index()
     {
-        ViewData["Titulo"] = "Especialidades da Clínica Vida+";
+        var contagem = new Dictionary<int, int>();
 
-        return View();
+        foreach (var e in ClinicaEmMemoria.Especialidades)
+        {
+            contagem[e.Id] = ClinicaEmMemoria.Medicos.Count(m => m.EspecialidadeId == e.Id);
+        }
+
+        ViewBag.MedicosPorEspecialidade = contagem;
+
+        return View(ClinicaEmMemoria.Especialidades);
     }
 
     public IActionResult Details(int id, string nome)
     {
-        if (id < 1 || id > 3)
+        var especialidade = ClinicaEmMemoria.Especialidades.FirstOrDefault(e => e.Id == id);
+        if (especialidade is null)
         {
             return NotFound();
         }
 
         ViewData["Id"] = id;
-        ViewData["Nome"] = nome;
+        ViewData["Nome"] = string.IsNullOrWhiteSpace(nome) ? especialidade.Nome : nome;
 
         return View();
     }
