@@ -183,3 +183,87 @@ footer p:last-child {
   font-size: 0.875rem;
   color: var(--vida-borda);
 }
+
+.form-agendamento {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0 0 28px;
+  padding: 20px;
+  background-color: var(--vida-superficie);
+  border: 1px solid var(--vida-borda);
+  border-radius: var(--raio);
+}
+
+legend {
+  padding: 0 8px;
+  font-weight: 700;
+  color: var(--vida-primaria);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px 24px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo-largo {
+  grid-column: 1 / -1;
+}
+
+.campo label {
+  font-weight: 600;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--vida-texto);
+  background-color: var(--vida-superficie);
+  border: 1px solid var(--vida-borda);
+  border-radius: var(--raio);
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: 3px solid #C84B31;
+}
+
+.form-agendamento button {
+  padding: 12px 24px;
+  font: inherit;
+  font-weight: 700;
+  color: var(--vida-superficie);
+  background-color: var(--vida-primaria);
+  border: none;
+  border-radius: var(--raio);
+  cursor: pointer;
+}
+
+.form-agendamento button:hover,
+.form-agendamento button:focus {
+  background-color: var(--vida-secundaria);
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
